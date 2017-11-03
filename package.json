@@ -1,0 +1,19 @@
+{
+  "name": "chrome-redux-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pierroberto/chrome-redux-tutorial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pierroberto/chrome-redux-tutorial/issues"
+  },
+  "homepage": "https://github.com/pierroberto/chrome-redux-tutorial#readme"
+}
