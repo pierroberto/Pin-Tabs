@@ -3,7 +3,7 @@
   "description": "Redux Chrome extension example",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pierroberto/chrome-redux-tutorial.git"
+    "url": "git+https://github.com/pierroberto/chrome-navigator.git"
   },
   "version": "0.0.1",
   "author": {
