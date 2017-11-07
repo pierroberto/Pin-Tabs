@@ -1,3 +1,4 @@
-p {
-  background-color: blue;
+html, body {
+  height: 400px;
+  width: 400px;
 }

@@ -7,10 +7,12 @@ const defaultState = {
 const counter = (state=defaultState,action) => {
   switch (action.type) {
     case 'ADD':
-    console.log('inside reducers..', action, 'state', state)
-      return ({
-        counter: action.counter.counter + 1
-      })
+
+      return 'ok'
+  //   console.log('inside reducers..', action, 'state', state)
+  //     return ({
+  //       counter: action.counter + 1
+  //     })
   }
   return state;
 
@@ -18,7 +20,7 @@ const counter = (state=defaultState,action) => {
 
 // Combining both reducers
 const reducers = combineReducers({
-  counter
+
 });
 
-export default reducers;
+export default counter;

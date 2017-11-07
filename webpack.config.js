@@ -26,6 +26,10 @@ module.exports = {
     popup: [
       'babel-polyfill',
       `${PAGES_PATH}/popup`,
+    ],
+    index: [
+      'babel-polyfill',
+      `${PAGES_PATH}/content`,
     ]
   },
   output: {

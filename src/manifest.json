@@ -1,6 +1,16 @@
 {
   "manifest_version": 2,
   "name": "Redux tutorial Chrome",
+  "commands": {
+    "toggle-feature-foo": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+1",
+        "mac": "Command+Shift+1"
+      },
+      "description": "Toggle feature foo",
+      "global": true
+    }
+  },
   "version": "0.1",
   "description": "Example Chrome Redux extension",
   "browser_action": {
@@ -11,6 +21,19 @@
   "background": {
       "page": "pages/background.html"
   },
-  "permissions": [ "tabs" ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["pages/index.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "http://*/*",
+    "https://*/*"
+
+  ],
   "minimum_chrome_version": "60"
 }
