@@ -1,18 +1,16 @@
 import { combineReducers } from 'redux';
 
 const defaultState = {
-  counter: 0
+  link: ''
 }
 // no change reducer for testing
 const counter = (state=defaultState,action) => {
   switch (action.type) {
     case 'ADD':
+    console.log('add reducers', action)
 
-      return 'ok'
-  //   console.log('inside reducers..', action, 'state', state)
-  //     return ({
-  //       counter: action.counter + 1
-  //     })
+    return 'ok'
+
   }
   return state;
 

@@ -10,8 +10,8 @@ class App extends React.Component {
   }
 
   add () {
-    console.log('inside add function', this.props.counter)
-    this.props.addNum(this.props.counter)
+
+    this.props.addNum()
   }
 
 
@@ -20,7 +20,6 @@ class App extends React.Component {
   }
 
   render () {
-    console.log('props', this.props)
     return (
       <div>
         <p>hello</p>
@@ -39,7 +38,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps  = (dispatch) => ({
-  addNum: (data) => dispatch(add(data))
+  addNum: async () => dispatch(await add())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

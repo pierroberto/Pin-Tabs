@@ -10,6 +10,7 @@ document.getElementById('add').addEventListener('click', function () {
   port.onMessage.addListener (function(msg) {
     if (msg.result) {
       console.log('url received in the page', msg.result);
+      port.postMessage ({message: "hello"});
       }
   });
 })
