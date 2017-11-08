@@ -25,7 +25,7 @@
     {
       "matches": ["<all_urls>"],
       "js": ["pages/index.js"],
-      "run_at": "document_start"
+      "run_at": "document_end"
     }
   ],
   "permissions": [
