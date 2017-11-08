@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      tabs: []
+      tabs: ['nothing']
     }
   }
   addBookmark () {
@@ -18,21 +18,22 @@ class App extends React.Component {
     });
   }
 
-  createList () {
+  renderList () {
     return this.props.tabs.map (link => {
       return (
-        <h3>{link}</h3>
+        <h4>{link}</h4>
       )
     });
   }
+
   render () {
-    console.log('props', this.props)
+    console.log('props, render', this.props)
     return (
       <div>
         <p>hello</p>
         <h1>Title</h1>
         <button onClick={() => this.addBookmark()}>Add</button>
-        <div>{this.createList()}</div>
+        <div>{this.renderList()}</div>
       </div>
     )
   }

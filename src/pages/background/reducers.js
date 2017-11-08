@@ -7,12 +7,10 @@ const defaultState = {
 const bookmark = (state=defaultState,action) => {
   switch (action.type) {
     case 'ADD':
-      let newState = {}
-      console.log('add reducers', action, 'old state', state)
-      newState.tabs = state.tabs
-      newState.tabs.push(action.link.url)
-      console.log('newstate', newState)
-      return newState
+      return {
+        ...state,
+        tabs: [...state.tabs, action.link.url]
+      }
   }
   return state;
 }
