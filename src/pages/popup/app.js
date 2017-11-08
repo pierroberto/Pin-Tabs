@@ -21,7 +21,7 @@ class App extends React.Component {
   renderList () {
     return this.props.tabs.map (link => {
       return (
-        <h4>{link}</h4>
+        <h3 class='link'>{link}</h3>
       )
     });
   }
@@ -30,8 +30,7 @@ class App extends React.Component {
     console.log('props, render', this.props)
     return (
       <div>
-        <p>hello</p>
-        <h1>Title</h1>
+        <h1>Bucket</h1>
         <button onClick={() => this.addBookmark()}>Add</button>
         <div>{this.renderList()}</div>
       </div>

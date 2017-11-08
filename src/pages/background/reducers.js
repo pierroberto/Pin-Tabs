@@ -15,7 +15,7 @@ const bookmark = (state=defaultState,action) => {
   return state;
 }
 
-// Combining both reducers
+
 const reducers = combineReducers({
 
 });
