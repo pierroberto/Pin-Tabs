@@ -1,44 +1,49 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { add } from '../background/actions';
+import { bookmark } from '../background/actions';
 import './app.css'
 
 class App extends React.Component {
 
   constructor (props) {
     super(props)
+    this.state = {
+      tabs: []
+    }
+  }
+  addBookmark () {
+    console.log('this props', this.props)
+    chrome.tabs.query({active: true}, (data) => {
+      this.props.add(data[0])
+    });
   }
 
-  add () {
-
-    this.props.addNum()
+  createList () {
+    return this.props.tabs.map (link => {
+      return (
+        <h3>{link}</h3>
+      )
+    });
   }
-
-
-  componentDidMount() {
-    this.add();
-  }
-
   render () {
+    console.log('props', this.props)
     return (
       <div>
         <p>hello</p>
         <h1>Title</h1>
-        <button accesskey="h" onClick={() => this.add()}>Add</button>
-        <p>counting {this.props.counter}</p>
-
+        <button onClick={() => this.addBookmark()}>Add</button>
+        <div>{this.createList()}</div>
       </div>
-
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  counter : state.counter
+  tabs : state.tabs
 });
 
 const mapDispatchToProps  = (dispatch) => ({
-  addNum: async () => dispatch(await add())
+  add: (link) => dispatch(bookmark(link))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
