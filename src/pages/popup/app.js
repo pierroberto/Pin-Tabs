@@ -18,7 +18,7 @@ class App extends React.Component {
 
   saveBookmark () {
     return new Promise ((resolved, rejected) => {
-      chrome.tabs.query({active: true}, (data) => {
+      chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, (data) => {
         console.log('tabs info', data)
         //this.props.add(data[0]);
         resolved(data[0])
