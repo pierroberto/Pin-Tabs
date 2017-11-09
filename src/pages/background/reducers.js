@@ -7,6 +7,7 @@ const defaultState = {
 const bookmark = (state=defaultState,action) => {
   switch (action.type) {
     case 'ADD':
+      console.log('adding reducerd')
       return {
         ...state,
         tabs: [...state.tabs, action.link.url]

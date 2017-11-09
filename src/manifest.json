@@ -32,7 +32,8 @@
     "tabs",
     "activeTab",
     "http://*/*",
-    "https://*/*"
+    "https://*/*",
+    "storage"
 
   ],
   "minimum_chrome_version": "60"
