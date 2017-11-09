@@ -13,14 +13,13 @@ class App extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = {
-      tabs: ['nothing'],
-    }
+
   }
 
   saveBookmark () {
     return new Promise ((resolved, rejected) => {
       chrome.tabs.query({active: true}, (data) => {
+        console.log('tabs info', data)
         //this.props.add(data[0]);
         resolved(data[0])
       })
@@ -56,14 +55,11 @@ class App extends React.Component {
   }
 
   renderBookmark () {
-    //I render the new list of links
-    console.log('called from rendering TABS', this.props.tabs)
-
     const tabs = this.props.tabs
     return tabs.map (tab => {
       console.log('TAB', tab)
       return (
-        <h3 key={randomId()} className='link'>{tab}</h3>
+        <a href={tab} target='_blank' key={randomId()} className='link'>{tab}</a>
       )
     });
   }
@@ -84,7 +80,6 @@ class App extends React.Component {
 
   render () {
     console.log('inside rendering...', this.props.state)
-
     return (
       <div>
         <h1>Bucket</h1>
