@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bookmark } from '../background/actions';
-import './app.css'
+import { bookmark, refreshBookmark } from '../background/actions';
+import './app.css';
 import randomId from 'uuid/v4';
 
 class App extends React.Component {
@@ -10,58 +10,54 @@ class App extends React.Component {
     super(props)
     this.state = {
       tabs: ['nothing'],
-      storage: null,
-      flag:false
     }
   }
-  addBookmark () {
-    console.log('this props', this.props)
-    chrome.tabs.query({active: true}, (data) => {
-      console.log('into query', data[0].url)
-      this.props.add(data[0])
-    });
-  }
 
-  renderBookmark() {
-    return this.props.tabs.map(link => {
-      return (
-        <h4>{link}</h4>
-      )
+  saveBookmark () {
+    return new Promise ((resolved, rejected) => {
+      chrome.tabs.query({active: true}, (data) => {
+        this.props.add(data[0]);
+        resolved(data[0])
+      })
+    })
+    .then (link => {
+      chrome.storage.sync.set({'url': ['hello']}, function() {
+      });
+
     })
   }
 
 
-  loadList () {
-    chrome.storage.sync.get('url', (data) => {
-      console.log('data', data.url)
-      this.setState({tabs:this.state.tabs, storage:data, flag:true})
+  loadBookmark () {
+    return new Promise ((resolved,rejected) => {
+      chrome.storage.sync.get ('url', data => {
+        resolved(data)
+      })
+    })
+    .then ((data) => {
+      this.props.refresh(data)
+    })
+
+  }
+
+  renderBookmark () {
+    return this.props.tabs.map (tab => {
+      return (
+        <h3>{tab}</h3>
+      )
     });
   }
 
-  renderList(arr) {
-    return arr.map (link => {
-      return (
-        <h3 key={randomId()} className='link'>{link}</h3>
-      )
-    })
+  componentDidMount () {
+    this.loadBookmark()
   }
-
   render () {
-    if (!this.state.flag) this.loadList();
-    console.log('props, render', this.props)
-    if (this.state.storage) return (
-      <div>
-        <h1>Bucket</h1>
-        <button onClick={() => this.addBookmark()}>Add</button>
-        <div>{this.renderBookmark()}</div>
-        <div>{this.renderList(this.state.storage.url)}</div>
-      </div>
-    )
+    console.log('inside rendering...', this.props)
     return (
       <div>
         <h1>Bucket</h1>
-        <button onClick={() => this.addBookmark()}>Add</button>
-        <div>Loading...</div>
+        <button onClick={() => this.saveBookmark()}>Add</button>
+        <div>{this.renderBookmark()}</div>
       </div>
     )
   }
@@ -72,7 +68,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps  = (dispatch) => ({
-  add: (link) => dispatch(bookmark(link))
+  add: (link) => dispatch(addBookmark(link)),
+  refresh: (data) => dispatch(refreshBookmark(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
