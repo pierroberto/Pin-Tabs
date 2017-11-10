@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {refreshBookmark, deleteAllBookmark} from '../background/actions';
 import './app.css';
 import ListView from './ListView.js';
-
+import truncate from 'truncate';
 class App extends React.Component {
 
   constructor (props) {
@@ -13,36 +13,29 @@ class App extends React.Component {
   saveBookmark () {
     return new Promise ((resolved, rejected) => {
       chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, (data) => {
-        console.log('tabs info', data)
-        resolved(data[0]);
+        resolved(data);
       })
     })
     .then (link => {
+      this.addEmptyPic(link)
+      this.truncateTitle(link)
       this.props.refresh(link);
     })
   }
 
+  addEmptyPic(pic) {
+    if (!pic[0].favIconUrl)
+      pic[0].favIconUrl='../assets/nothing.png';
+  }
 
-  // loadBookmark () {
-  //   // return new Promise ((resolved,rejected) => {
-  //     // chrome.storage.sync.get ('url', data => {
-  //     //   resolved(data)
-  //     // })
-  //   // })
-  //   // .then ((data) => {
-  //     this.props.refresh(data);
-  //   // })
-  //   // .then ((final) => {
-  //   //
-  //   // })
-  //
-  // }
+  truncateTitle(title) {
+    if (title[0].title.length > 10) {
+      title[0].title = truncate(title[0].title.toString(), 55)
+    }
 
+  }
 
   clearAll () {
-  //  chrome.storage.sync.clear(function(obj){
-  //     console.log("local storage cleared", obj);
-  //   });
     this.props.deleteAll()
   }
 
@@ -52,9 +45,8 @@ class App extends React.Component {
 
 
   render () {
-    console.log('inside rendering...', this.props.state)
     return (
-      <div>
+      <div className='wrapper'>
         <h1>Bucket</h1>
         <button onClick={() => this.saveBookmark()}>Add</button>
         <button onClick={() => this.clearAll()}>Clear</button>

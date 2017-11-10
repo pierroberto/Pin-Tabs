@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import './list-view.css';
 import randomId from 'uuid/v4';
+import ItemView from './ItemView';
 
 export default class ListView extends React.Component {
 
-  renderBookmark () {
+  getUrl (e) {
+    console.log('here there should be the link', this.props, 'e', e)
+  }
 
-    const tabs = this.props.tabs
-    return tabs.map (tab => {
-      console.log('TAB', tab)
+  renderBookmark () {
+    console.log('state in listview', this.props)
+    //const tabs = this.props.tabs
+    return this.props.tabs.map (tab => {
       return (
-        <a href={tab} target='_blank' key={randomId()} className='link'>{tab}</a>
+        <ItemView key={randomId()}
+                  tab_url={tab[0].url}
+                  tab_title={tab[0].title}
+                  tab_icon={tab[0].favIconUrl}
+                  ></ItemView>
       )
     });
   }
 
-
   render () {
-    console.log('props in listview', this.props)
     return (
       <div>{this.renderBookmark()}</div>
     )

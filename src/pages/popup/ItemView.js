@@ -4,9 +4,12 @@ import './item-view.css';
 export default class ItemView extends React.Component {
 
   render () {
-    console.log('props in listview', this.props)
+
     return (
-      <div>{this.props.tab}</div>
+      <div className='content-container'>
+        <img src={this.props.tab_icon} />
+        <div>{this.props.tab_title}</div>
+      </div>
     )
   }
 }

@@ -10,7 +10,7 @@ const bookmark = (state=defaultState,action) => {
       console.log('url list', action.urlList)
       return {
         ...state,
-        tabs: [...state.tabs, action.urlList.url]
+        tabs: [...state.tabs, action.urlList]
       }
     case 'DELETE-ALL':
       return {

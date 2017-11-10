@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto');*/
 
 html, body {
   height: 400px;
   width: 400px;
+  margin: 0px;
+  padding: 0px;
 }
 
-.link {
+/*.link {
   font-family: 'Roboto';
   font-size: 15px;
   display: flex;
@@ -17,4 +19,8 @@ html, body {
 
 .link:hover {
   background-color: #fffaf0;
+}*/
+
+.wrapper {
+  margin: 10px;
 }
