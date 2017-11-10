@@ -8,7 +8,7 @@ export default class ItemView extends React.Component {
       <div className='content-container'>
         <div className='col-1'>
           <img className='icon' src={this.props.tab_icon} />
-          <div className='title'>{this.props.tab_title}</div>
+          <a className='title' href={this.props.tab_url} target='_blank'>{this.props.tab_title}</a>
         </div>
         <div className='col-2'>
           <img className='delete-button' src='../assets/delete.png' onClick={()=>this.props.dataCallback(this.props.tab_url)} />

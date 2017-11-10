@@ -1,26 +1,25 @@
-/*@import url('https://fonts.googleapis.com/css?family=Roboto');*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
 
 html, body {
-  height: 400px;
+  height: auto;
   width: 400px;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-/*.link {
-  font-family: 'Roboto';
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  padding-left: 7px;
-  border-radius: 7px;
+button {
+  background-color: #33C3F0;
+  color: white;
+  border: none;
+  margin-right: 5px;
+  padding: 5px 10px;
 }
 
-.link:hover {
-  background-color: #fffaf0;
-}*/
+h2 {
+    margin-top: 0;
+}
 
 .wrapper {
-  margin: 10px;
+  margin: 20px;
 }
