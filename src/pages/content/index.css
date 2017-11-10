@@ -1,0 +1,22 @@
+.add-button {
+  display: block;
+  position: fixed;
+
+  width: 40px;
+  height: 40px;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: #D63B30;
+  z-index: 99999;
+  cursor: pointer;
+}
+
+.add-button:before {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

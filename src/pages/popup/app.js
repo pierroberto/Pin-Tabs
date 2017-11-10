@@ -13,7 +13,6 @@ class App extends React.Component {
 
   constructor (props) {
     super(props)
-
   }
 
   saveBookmark () {
@@ -72,8 +71,6 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-
-
   }
 
 

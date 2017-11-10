@@ -1,15 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 html, body {
   height: 400px;
   width: 400px;
 }
 
 .link {
+  font-family: 'Roboto';
+  font-size: 15px;
   display: flex;
   align-items: center;
   height: 40px;
   padding-left: 7px;
   border-radius: 7px;
-  font-size: 15px;
 }
 
 .link:hover {
