@@ -5,16 +5,22 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './index.css';
 
+import {Store} from 'react-chrome-redux'
+
+const store = new Store({
+  portName: 'COUNTING',
+})
+
 class InjectApp extends Component {
   constructor(props) {
     super(props);
 
   }
-
   render() {
+    console.log('store', store)
     return (
       <div>
-        <div className='add-button'></div>
+        <div className='add-button' onClick={()=>location.href='http://www.google.com'}></div>
       </div>
     );
   }
