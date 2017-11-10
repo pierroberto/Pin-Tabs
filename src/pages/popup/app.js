@@ -17,20 +17,18 @@ class App extends React.Component {
       })
     })
     .then (link => {
-      this.addEmptyPic(link)
-      this.truncateTitle(link)
-      this.props.refresh(link);
+      if (!link[0].favIconUrl) link[0].favIconUrl='../assets/nothing.png';
+      if (link[0].title.length > 10) link[0].title = truncate(link[0].title.toString(), 55)
+      const flag = this.checkUrl(link);
+      if (flag) this.props.refresh(link);
     })
   }
 
-  addEmptyPic(pic) {
-    if (!pic[0].favIconUrl)
-      pic[0].favIconUrl='../assets/nothing.png';
-  }
-
-  truncateTitle(title) {
-    if (title[0].title.length > 10)
-      title[0].title = truncate(title[0].title.toString(), 55)
+  checkUrl (link) {
+    for (let i = 0; i < this.props.tabs.length; i++) {
+      if (this.props.tabs[i][0].url === link[0].url) return false;
+    }
+    return true;
   }
 
   clearAll () {
@@ -38,7 +36,6 @@ class App extends React.Component {
   }
 
   dataCallback = (data) => {
-    console.log('data passed from props ',data);
     this.props.deleteOne(data)
     return data;
   }
