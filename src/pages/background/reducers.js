@@ -7,6 +7,7 @@ const defaultState = {
 const bookmark = (state=defaultState,action) => {
   switch (action.type) {
     case 'REFRESH':
+      console.log('url list', action.urlList)
       return {
         ...state,
         tabs: [...state.tabs, action.urlList.url]
