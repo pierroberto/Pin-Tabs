@@ -5,8 +5,6 @@ import {Store} from 'react-chrome-redux'
 import App from './app'
 import reducers from '../background/reducers';
 
-
-
 const store = new Store({
   portName: 'COUNTING',
 })

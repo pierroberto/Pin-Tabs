@@ -5,3 +5,7 @@ export const refreshBookmark = (data) => ({
 export const deleteAllBookmark = () => ({
   type: 'DELETE-ALL',
 })
+export const deleteOneBookmark = (url) => ({
+  type: 'DELETE-ONE',
+  url: url
+})

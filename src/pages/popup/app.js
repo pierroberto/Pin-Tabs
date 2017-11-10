@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {refreshBookmark, deleteAllBookmark} from '../background/actions';
+import {refreshBookmark, deleteAllBookmark, deleteOneBookmark} from '../background/actions';
 import './app.css';
 import ListView from './ListView.js';
 import truncate from 'truncate';
@@ -29,28 +29,28 @@ class App extends React.Component {
   }
 
   truncateTitle(title) {
-    if (title[0].title.length > 10) {
+    if (title[0].title.length > 10)
       title[0].title = truncate(title[0].title.toString(), 55)
-    }
-
   }
 
   clearAll () {
     this.props.deleteAll()
   }
 
-  componentDidMount () {
+  dataCallback = (data) => {
+    console.log('data passed from props ',data);
+    this.props.deleteOne(data)
+    return data;
   }
 
-
-
   render () {
+
     return (
       <div className='wrapper'>
-        <h1>Bucket</h1>
+        <h2>List Tabs saved</h2>
         <button onClick={() => this.saveBookmark()}>Add</button>
-        <button onClick={() => this.clearAll()}>Clear</button>
-        <ListView tabs={this.props.tabs}></ListView>
+        <button onClick={() => this.clearAll()}>Delete All</button>
+        <ListView tabs={this.props.tabs} dataCallback={this.dataCallback}></ListView>
       </div>
     )
   }
@@ -61,10 +61,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps  = (dispatch) => ({
-
-  // I expect data to be an array of strings
   refresh: (data) => dispatch(refreshBookmark(data)),
   deleteAll: () => dispatch(deleteAllBookmark()),
+  deleteOne: (url) => dispatch(deleteOneBookmark(url))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
