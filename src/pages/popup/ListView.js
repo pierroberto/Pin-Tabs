@@ -18,9 +18,26 @@ export default class ListView extends React.Component {
     });
   }
 
+  renderChronology () {
+    return this.props.chronology.map (tab => {
+      return (
+        <ItemView key={randomId()}
+                  tab_url={tab.tab[0].url}
+                  tab_title={tab.tab[0].title}
+                  tab_icon={tab.tab[0].favIconUrl}
+                  ></ItemView>
+      )
+    });
+
+  }
+
   render () {
-    return (
-      <div>{this.renderBookmark()}</div>
-    )
+    console.log('state in list view', this.props)
+    switch (this.props.action) {
+      case 'renderBookmark':
+        return <div>{this.renderBookmark()}</div>
+      case 'renderChronology':
+        return <div>{this.renderChronology()}</div>
+    }
   }
 }

@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 
 const defaultState = {
-  tabs: [{tab: [{url:'', title: '', favIconUrl: ''}], expiry: 0}]
+  tabs: [{tab: [{url:'', title: '', favIconUrl: ''}], expiry: 0}],
+  chronology: [{tab: [{url:'', title: '', favIconUrl: ''}], expiry: 0}]
 }
 
 const bookmark = (state=defaultState,action) => {
@@ -20,12 +21,19 @@ const bookmark = (state=defaultState,action) => {
       console.log('deleting all');
       return {
         ...state,
-        tabs: []
+        tabs: [],
       }
     case 'DELETE-ONE':
       return {
         ...state,
         tabs: [...state.tabs.filter(element => element.tab[0].url !== action.url)]
+      }
+    case 'EXPIRY':
+      console.log('expiry', state.chronology);
+      return {
+        ...state,
+        tabs: [...state.tabs.filter(element => element.tab[0].url !== action.url)],
+        chronology: [...state.tabs.filter(element => element.tab[0].url === action.url), ...state.chronology.splice(0,5)]
       }
   }
   return state;

@@ -8,20 +8,16 @@ chrome.commands.onCommand.addListener(function(command) {
 
 
 store.subscribe (() => {
-    console.log('subscribing...');
     store.getState().tabs.map(infoTab => {
       console.log('tabs', infoTab);
-      chrome.alarms.create(infoTab.tab[0].url, {when: infoTab.expiry + 60000})
+      chrome.alarms.create(infoTab.tab[0].url, {when: infoTab.expiry + 7000})
     });
-    //store.dispatch({type:'DELETE-ALL'})
 });
 
-
-
 chrome.alarms.onAlarm.addListener(function (data) {
-  console.log('alarm fired');
   let elementExpired = store.getState().tabs.filter(el => {
     return el.tab[0].url === data.name
   })
-  store.dispatch({type:'DELETE-ONE', url: elementExpired[0].tab[0].url})
+  console.log('dispatching expiry...', elementExpired[0].tab[0].url);
+  store.dispatch({type:'EXPIRY', url: elementExpired[0].tab[0].url})
 })

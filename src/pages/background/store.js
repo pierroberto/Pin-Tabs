@@ -14,7 +14,8 @@ const store = createStore(
 
 store.subscribe(throttle(() => {
   saveState({
-    tabs: store.getState().tabs
+    tabs: store.getState().tabs,
+    chronology: store.getState().chronology
   })
 }), 1000);
 

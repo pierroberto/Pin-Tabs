@@ -40,21 +40,16 @@ class App extends React.Component {
     return data;
   }
 
-  addTimer () {
-    //I want to get the id of the tab as name for each timer
-
-  }
-
-
   render () {
-    this.addTimer()
     console.log('state', this.props);
     return (
       <div className='wrapper'>
-        <h2>List Tabs saved</h2>
         <button onClick={() => this.saveBookmark()}>Add</button>
         <button onClick={() => this.clearAll()}>Delete All</button>
-        <ListView tabs={this.props.tabs} deleteTab={this.deleteTab}></ListView>
+        
+        <ListView tabs={this.props.tabs} deleteTab={this.deleteTab} action='renderBookmark'></ListView>
+        <h2 className='history'>History</h2>
+        <ListView chronology={this.props.chronology} action='renderChronology'></ListView>
       </div>
     )
   }
@@ -62,6 +57,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => ({
   tabs : state.tabs,
+  chronology: state.chronology
 });
 
 const mapDispatchToProps  = (dispatch) => ({

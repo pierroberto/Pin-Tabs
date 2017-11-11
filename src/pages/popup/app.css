@@ -13,11 +13,16 @@ button {
   color: white;
   border: none;
   margin-right: 5px;
+  margin-bottom: 10px;
   padding: 5px 10px;
 }
 
 h2 {
     margin-top: 0;
+}
+
+.history {
+  margin-top: 20px;
 }
 
 .wrapper {
