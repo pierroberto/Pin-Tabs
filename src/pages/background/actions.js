@@ -15,3 +15,7 @@ export const addBookmark = (url) => ({
   urlList: url,
   expiry: new Date().getTime()
 })
+export const addFromButton = (flag) => ({
+  type: 'DELETE-ONE',
+  addFromButton: flag
+})

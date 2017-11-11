@@ -15,7 +15,8 @@ const store = createStore(
 store.subscribe(throttle(() => {
   saveState({
     tabs: store.getState().tabs,
-    chronology: store.getState().chronology
+    chronology: store.getState().chronology,
+    addFromButton: false
   })
 }), 1000);
 

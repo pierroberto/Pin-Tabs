@@ -1,22 +1,61 @@
 .add-button {
   display: block;
   position: fixed;
-
-  width: 40px;
-  height: 40px;
-  bottom: 20px;
-  right: 20px;
-  border-radius: 20px;
+  width: 60px;
+  height: 60px;
+  bottom: 15px;
+  right: 15px;
+  border-radius: 40px;
   color: white;
   background-color: #D63B30;
   z-index: 99999;
   cursor: pointer;
+  box-shadow: 3px 3px 3px #888888;
 }
 
-.add-button:before {
-  content: '+';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-plus {
+  width: 40px;
+  height: 40px;
+}
+
+.plus-sign {
+  box-sizing:content-box;
+  display:inline-block!important;
+  position:relative;
+  width:38px;
+  height:38px;
+  border-radius:100%;
+  background:rgba(0,0,0,0)
+}
+
+.plus-sign:before {
+  position:absolute;
+  content:'';
+  margin:auto;
+  width:calc(38px/8);
+  height:calc(38px/1.5);
+  background-color:#FFFFFF;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0
+}
+
+.plus-sign:after {
+  position:absolute;
+  content:'';
+  margin:auto;
+  width:calc(38px/1.5);
+  height:calc(38px/8);
+  background-color:#FFFFFF;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0
 }

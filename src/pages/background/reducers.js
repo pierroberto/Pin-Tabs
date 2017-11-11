@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 
 const defaultState = {
   tabs: [{tab: [{url:'', title: '', favIconUrl: ''}], expiry: 0}],
-  chronology: [{tab: [{url:'', title: '', favIconUrl: ''}], expiry: 0}]
+  chronology: [{tab: [{url:'', title: '', favIconUrl: ''}], expiry: 0}],
+  addFromButton: false
 }
 
 const bookmark = (state=defaultState,action) => {
@@ -11,6 +12,11 @@ const bookmark = (state=defaultState,action) => {
       return {
         ...state,
         tabs: [...state.tabs, {tab: action.urlList, expiry: action.expiry}]
+      }
+    case 'ADD-FROM-BUTTON':
+      return {
+        ...state,
+        addFromButton: action.addFromButton
       }
     case 'REFRESH':
       return {
@@ -26,7 +32,8 @@ const bookmark = (state=defaultState,action) => {
     case 'DELETE-ONE':
       return {
         ...state,
-        tabs: [...state.tabs.filter(element => element.tab[0].url !== action.url)]
+        tabs: [...state.tabs.filter(element => element.tab[0].url !== action.url)],
+        addFromButton: false
       }
     case 'EXPIRY':
       console.log('expiry', state.chronology);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {refreshBookmark, deleteAllBookmark, deleteOneBookmark, addBookmark} from '../background/actions';
+import {refreshBookmark, deleteAllBookmark, deleteOneBookmark, addBookmark, addFromButton} from '../background/actions';
 import './app.css';
 import ListView from './ListView.js';
 import truncate from 'truncate';
@@ -42,11 +42,18 @@ class App extends React.Component {
 
   render () {
     console.log('state', this.props);
+    // I check if the button in the content script has been clicked
+    if (this.props.addFromButton) {
+      console.log('inside if render', this.props.addFromButton)
+      this.saveBookmark()
+      this.props.addThroughButton(false)
+    }
+
     return (
       <div className='wrapper'>
         <button onClick={() => this.saveBookmark()}>Add</button>
         <button onClick={() => this.clearAll()}>Delete All</button>
-        
+
         <ListView tabs={this.props.tabs} deleteTab={this.deleteTab} action='renderBookmark'></ListView>
         <h2 className='history'>History</h2>
         <ListView chronology={this.props.chronology} action='renderChronology'></ListView>
@@ -57,14 +64,16 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => ({
   tabs : state.tabs,
-  chronology: state.chronology
+  chronology: state.chronology,
+  addFromButton: state.addFromButton
 });
 
 const mapDispatchToProps  = (dispatch) => ({
   add: (url) => dispatch(addBookmark(url)),
   refresh: (data) => dispatch(refreshBookmark(data)),
   deleteAll: () => dispatch(deleteAllBookmark()),
-  deleteOne: (url) => dispatch(deleteOneBookmark(url))
+  deleteOne: (url) => dispatch(deleteOneBookmark(url)),
+  addThroughButton : (flag) => dispatch(addFromButton(flag))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,11 +1,10 @@
 console.log('inside content script...')
-//document.body.innerHTML += "<img id='add' src='http://www.downloadclipart.net/medium/18122-blue-pin-clip-art.png'style='width: 50px; position:fixed; top:5px; left:5px; z-index:999999'/>";
 
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './index.css';
-
-import {Store} from 'react-chrome-redux'
+import truncate from 'truncate';
+import {Store} from 'react-chrome-redux';
 
 const store = new Store({
   portName: 'COUNTING',
@@ -16,10 +15,13 @@ class InjectApp extends Component {
     super(props);
 
   }
+
   render() {
     return (
-      <div>
-        <div className='add-button' onClick={()=>location.href='http://www.google.com'}></div>
+      <div className ='button-container'>
+        <div className='add-button' accessKey='s' onClick={() => store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true})}>
+          <div className='plus-sign'></div>
+        </div>
       </div>
     );
   }
@@ -27,7 +29,7 @@ class InjectApp extends Component {
 
 window.addEventListener('load', () => {
   const injectDOM = document.createElement('div');
-  injectDOM.className = 'inject-react-example';
+  injectDOM.className = 'inject-react';
   injectDOM.style.textAlign = 'center';
   document.body.appendChild(injectDOM);
   render(<InjectApp />, injectDOM);
