@@ -9,10 +9,10 @@ export default class ListView extends React.Component {
     return this.props.tabs.map (tab => {
       return (
         <ItemView key={randomId()}
-                  tab_url={tab[0].url}
-                  tab_title={tab[0].title}
-                  tab_icon={tab[0].favIconUrl}
-                  dataCallback={this.props.dataCallback}
+                  tab_url={tab.tab[0].url}
+                  tab_title={tab.tab[0].title}
+                  tab_icon={tab.tab[0].favIconUrl}
+                  deleteTab={this.props.deleteTab}
                   ></ItemView>
       )
     });

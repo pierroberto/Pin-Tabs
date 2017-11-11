@@ -1,17 +1,23 @@
 import { combineReducers } from 'redux';
 
 const defaultState = {
-  tabs: []
+  tabs: [{tab: [{url:'', title: '', favIconUrl: ''}], expiry: 0}]
 }
 
 const bookmark = (state=defaultState,action) => {
   switch (action.type) {
+    case 'ADD':
+      return {
+        ...state,
+        tabs: [...state.tabs, {tab: action.urlList, expiry: action.expiry}]
+      }
     case 'REFRESH':
       return {
         ...state,
-        tabs: [...state.tabs, action.urlList]
+        tabs: [...state.tabs, {tab: action.urlList, expiry: action.expiry}]
       }
     case 'DELETE-ALL':
+      console.log('deleting all');
       return {
         ...state,
         tabs: []
@@ -19,7 +25,7 @@ const bookmark = (state=defaultState,action) => {
     case 'DELETE-ONE':
       return {
         ...state,
-        tabs: [...state.tabs.filter(element => element[0].url !== action.url)]
+        tabs: [...state.tabs.filter(element => element.tab[0].url !== action.url)]
       }
   }
   return state;
