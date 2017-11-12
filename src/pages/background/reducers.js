@@ -11,7 +11,7 @@ const bookmark = (state=defaultState,action) => {
     case 'ADD':
       return {
         ...state,
-        tabs: [...state.tabs, {tab: action.urlList, expiry: action.expiry}]
+        tabs: [{tab: action.urlList, expiry: action.expiry}, ...state.tabs]
       }
     case 'ADD-FROM-BUTTON':
       return {
@@ -21,10 +21,9 @@ const bookmark = (state=defaultState,action) => {
     case 'REFRESH':
       return {
         ...state,
-        tabs: [...state.tabs, {tab: action.urlList, expiry: action.expiry}]
+        tabs: [{tab: action.urlList, expiry: action.expiry}, ...state.tabs]
       }
     case 'DELETE-ALL':
-      console.log('deleting all');
       return {
         ...state,
         tabs: [],
