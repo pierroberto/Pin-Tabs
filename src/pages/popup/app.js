@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import {refreshBookmark, deleteAllBookmark, deleteOneBookmark, addBookmark, addFromButton} from '../background/actions';
 import './app.css';
 import ListView from './ListView.js';
+import Settings from './Settings'
 import truncate from 'truncate';
+
+
 class App extends React.Component {
 
   constructor (props) {
@@ -40,8 +43,12 @@ class App extends React.Component {
     return data;
   }
 
+// ====================== RENDERING
+
   render () {
+
     console.log('state', this.props);
+
     // I check if the button in the content script has been clicked
     if (this.props.addFromButton) {
       console.log('inside if render', this.props.addFromButton)
@@ -57,7 +64,7 @@ class App extends React.Component {
             <button onClick={() => this.clearAll()}>Delete All</button>
           </div>
           <div className='col-2'>
-            <i class="fa fa-cog fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-cog fa-2x"></i>
           </div>
         </div>
         <ListView

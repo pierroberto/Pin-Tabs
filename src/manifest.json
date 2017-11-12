@@ -37,5 +37,8 @@
     "alarms"
 
   ],
-  "minimum_chrome_version": "60"
+  "minimum_chrome_version": "60",
+  "icons": {
+    "16" : "assets/list.png"
+  }
 }
