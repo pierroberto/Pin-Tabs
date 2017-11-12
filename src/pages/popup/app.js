@@ -60,9 +60,17 @@ class App extends React.Component {
             <i class="fa fa-cog fa-2x" aria-hidden="true"></i>
           </div>
         </div>
-        <ListView tabs={this.props.tabs} deleteTab={this.deleteTab} action='renderBookmark'></ListView>
+        <ListView
+          tabs={this.props.tabs}
+          deleteTab={this.deleteTab}
+          action='renderBookmark'
+        />
         <h2 className='history'>History</h2>
-        <ListView tabs={this.props.chronology} action='renderChronology'></ListView>
+        <ListView
+          tabs={this.props.chronology}
+          deleteTab={false}
+          action='renderChronology'
+        />
       </div>
     )
   }
