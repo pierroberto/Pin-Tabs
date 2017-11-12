@@ -19,7 +19,6 @@ class InjectApp extends Component {
   render() {
     return (
       <div className ='button-container'>
-        {/* <div className='add-button' accessKey='s' onClick={() => store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true})}></div> */}
         <i className="fa fa-plus-circle fa-5x add-button custom" accessKey='s' onClick={() => store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true})}></i>
       </div>
     );

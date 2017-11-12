@@ -62,7 +62,7 @@ class App extends React.Component {
         </div>
         <ListView tabs={this.props.tabs} deleteTab={this.deleteTab} action='renderBookmark'></ListView>
         <h2 className='history'>History</h2>
-        <ListView chronology={this.props.chronology} action='renderChronology'></ListView>
+        <ListView tabs={this.props.chronology} action='renderChronology'></ListView>
       </div>
     )
   }
