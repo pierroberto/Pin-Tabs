@@ -11,7 +11,7 @@ export default class ItemView extends React.Component {
           <a className='title' href={this.props.tab_url} target='_blank'>{this.props.tab_title}</a>
         </div>
         <div className='col-2'>
-          <img className='delete-button' src='../assets/delete.png' onClick={()=>this.props.deleteTab(this.props.tab_url)} />
+          <i className="fa fa-trash-o fa-2x" onClick={()=>this.props.deleteTab(this.props.tab_url)}></i>
         </div>
       </div>
     )

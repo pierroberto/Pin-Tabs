@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 html, body {
   height: auto;
@@ -17,6 +18,14 @@ button {
   padding: 5px 10px;
 }
 
+.col-1 {
+
+}
+
+.col-2 {
+
+}
+
 h2 {
     margin-top: 0;
 }
@@ -25,6 +34,16 @@ h2 {
   margin-top: 20px;
 }
 
+.nav {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
 .wrapper {
   margin: 20px;
+}
+
+.fa-trash-o:hover {
+  color: red;
 }

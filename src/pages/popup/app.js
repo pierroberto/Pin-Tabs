@@ -51,9 +51,15 @@ class App extends React.Component {
 
     return (
       <div className='wrapper'>
-        <button onClick={() => this.saveBookmark()}>Add</button>
-        <button onClick={() => this.clearAll()}>Delete All</button>
-
+        <div className='nav'>
+          <div className='col-1'>
+            <button onClick={() => this.saveBookmark()}>Add</button>
+            <button onClick={() => this.clearAll()}>Delete All</button>
+          </div>
+          <div className='col-2'>
+            <i class="fa fa-cog fa-2x" aria-hidden="true"></i>
+          </div>
+        </div>
         <ListView tabs={this.props.tabs} deleteTab={this.deleteTab} action='renderBookmark'></ListView>
         <h2 className='history'>History</h2>
         <ListView chronology={this.props.chronology} action='renderChronology'></ListView>
