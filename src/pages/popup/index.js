@@ -2,9 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 import {Store} from 'react-chrome-redux'
-import App from './app'
+import App from './App';
+import Settings from './Settings'
 import reducers from '../background/reducers';
-
 const store = new Store({
   portName: 'COUNTING',
 })
