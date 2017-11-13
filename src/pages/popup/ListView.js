@@ -6,6 +6,7 @@ import ItemView from './ItemView';
 export default class ListView extends React.Component {
 
   renderTabs () {
+    console.log('inside list view', this.props);
     return this.props.tabs.map (tab => {
       return (
         <ItemView key={randomId()}
@@ -17,9 +18,8 @@ export default class ListView extends React.Component {
       )
     });
   }
-  
+
   render () {
-    console.log('state in list view', this.props)
     return (
       <div>
         {this.renderTabs()}

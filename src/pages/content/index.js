@@ -5,7 +5,6 @@ import { render } from 'react-dom';
 import './index.css';
 import truncate from 'truncate';
 import {Store} from 'react-chrome-redux';
-
 const store = new Store({
   portName: 'COUNTING',
 })

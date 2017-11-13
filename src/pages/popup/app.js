@@ -10,12 +10,15 @@ import {Link, Route, BrowserRouter as Router,Switch} from 'react-router-dom'
 class App extends React.Component {
 
   render () {
+    console.log('rendering in app...', this.props);
 
     return (
       <Router>
         <Switch>
-          <Route exact path='/pages/popup.html' component={Dashboard} />
-          <Route path='/pages/settings' component={Settings} />
+          <div className='wrapper'>
+            <Route exact path='/pages/popup.html' component={Dashboard} />
+            <Route path='/pages/settings' component={Settings} />
+          </div>
         </Switch>
       </Router>
     )
