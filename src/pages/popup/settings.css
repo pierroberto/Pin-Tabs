@@ -1,0 +1,9 @@
+ul {
+  list-style-type: none;
+  line-height: 3.5;
+  padding: 0;
+}
+
+label {
+  margin-right: 10px;
+}

@@ -10,7 +10,6 @@ export const saveState = (state) => {
 export const loadState = () => {
   try {
     const serializedState = localStorage.getItem('state');
-    console.log('retrieved data', serializedState);
     if(serializedState === null) {
       return undefined;
     }

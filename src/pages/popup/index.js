@@ -15,7 +15,7 @@ store.ready().then(() => {
 
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <App/>
     </Provider>,
     mountNode
   )

@@ -11,17 +11,25 @@
   cursor: pointer;
 }
 
-.add-button {
+/*.add-button {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+}*/
 
 .custom {
   color: #33C3F0;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .img-plus {
   width: 40px;
   height: 40px;
+}
+
+.visible {
+  visibility: visible;
 }

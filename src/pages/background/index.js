@@ -10,7 +10,7 @@ chrome.commands.onCommand.addListener(function(command) {
 store.subscribe (() => {
 
     store.getState().bookmark.tabs.map(infoTab => {
-      chrome.alarms.create(infoTab.tab[0].url, {when: infoTab.expiry + 7000})
+      chrome.alarms.create(infoTab.tab[0].url, {when: infoTab.expiry + store.getState().settings.expireDate})
     });
 });
 
