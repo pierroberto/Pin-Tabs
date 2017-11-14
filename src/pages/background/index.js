@@ -1,11 +1,5 @@
-//import axios from 'axios';
 import store from './store';
 console.log('inside background...', store)
-
-chrome.commands.onCommand.addListener(function(command) {
-  alert('hello')
-});
-
 
 store.subscribe (() => {
 

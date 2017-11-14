@@ -18,6 +18,11 @@ button {
   padding: 5px 10px;
 }
 
+.fa-trash-o:hover {
+  color: red;
+  cursor: pointer;
+}
+
 h2 {
     margin-top: 0;
 }
@@ -32,13 +37,16 @@ h2 {
   margin-top: 20px;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .nav {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
 
-
-.fa-trash-o:hover {
-  color: red;
+.visible {
+  visibility: visible;
 }

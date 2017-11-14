@@ -4,7 +4,7 @@ import './settings.css';
 import './App'
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { toggleButton, expireDate } from '../background/actions';
+import { toggleButton, toggleButtonHistory, expireDate } from '../background/actions';
 
 
 class Settings extends React.Component {
@@ -40,6 +40,10 @@ class Settings extends React.Component {
               <label>Show icon</label>
                 <input type='checkbox' checked={this.props.settings.button} onChange={(e) => this.props.toggle(e.target.checked)}/>
             </li>
+            <li>
+              <label>Show history</label>
+                <input type='checkbox' checked={this.props.settings.buttonHistory} onChange={(e) => this.props.toggleHistory(e.target.checked)}/>
+            </li>
 
           </ul>
         </form>
@@ -56,6 +60,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps  = (dispatch) => ({
   toggle : (flag) => dispatch(toggleButton(flag)),
+  toggleHistory : (flag) => dispatch(toggleButtonHistory(flag)),
   expire : (date) => dispatch(expireDate(date))
 });
 

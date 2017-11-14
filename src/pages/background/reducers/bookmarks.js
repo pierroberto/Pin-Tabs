@@ -9,7 +9,6 @@ const defaultState = {
 }
 
 const bookmark = (state=defaultState,action) => {
-  console.log('state', state, 'action', action);
   switch (action.type) {
     case 'ADD':
       return {

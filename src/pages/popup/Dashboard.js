@@ -89,12 +89,14 @@ class Dashboard extends React.Component {
           deleteTab={this.deleteTab}
           action='renderBookmark'
         />
-        <h2 className='history'>History</h2>
-        <ListView
-          tabs={this.props.bookmark.chronology}
-          deleteTab={false}
-          action='renderChronology'
-        />
+        <div className={this.props.settings.buttonHistory ? 'visible':'hidden'}>
+          <h2 className='history'>History</h2>
+          <ListView
+            tabs={this.props.bookmark.chronology}
+            deleteTab={false}
+            action='renderChronology'
+          />
+        </div>
       </div>
     )
   }

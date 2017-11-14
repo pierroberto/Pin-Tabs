@@ -3,7 +3,6 @@ console.log('inside content script...')
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './index.css';
-import truncate from 'truncate';
 import {Store} from 'react-chrome-redux';
 
 
@@ -17,30 +16,28 @@ const store = new Store({
   portName: 'COUNTING',
 })
 
-class InjectApp extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
+export default class InjectApp extends Component {
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
 
-    console.log('rendering icon', store.getState().settings);
+    console.log('rendering', store);
     const classDetail='fa fa-plus-circle fa-3x add-button custom ';
     return (
       <div className ='button-container'>
-        <i className={this.props.settings.button ? `${classDetail} visible` : `${classDetail} hidden`} accessKey='s' onClick={() => store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true})}></i>
+        <i className={store.getState().settings.button ? `${classDetail} visible` : `${classDetail} hidden`} accessKey='s' onClick={() => store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true})}></i>
       </div>
     );
   }
 }
-
-const mapStateToProps = (state) => ({
-  bookmark : state.bookmark,
-  settings : state.settings
-});
-
+//
+// const mapStateToProps = (state) => ({
+//   bookmark : state.bookmark,
+//   settings : state.settings
+// });
+//
 
 window.addEventListener('load', () => {
 
@@ -51,4 +48,4 @@ window.addEventListener('load', () => {
   render(<InjectApp />, injectDOM);
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(InjectApp);
+// export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
