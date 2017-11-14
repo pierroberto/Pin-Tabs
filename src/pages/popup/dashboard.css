@@ -18,6 +18,14 @@ button {
   padding: 5px 10px;
 }
 
+custom {
+  background-color: blue;
+}
+
+.fa-cog:hover {
+  color: #33C3F0;
+}
+
 .fa-trash-o:hover {
   color: red;
   cursor: pointer;

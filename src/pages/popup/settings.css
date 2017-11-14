@@ -1,9 +1,13 @@
-ul {
-  list-style-type: none;
-  line-height: 3.5;
-  padding: 0;
+.fa-check:hover {
+  color: #33C3F0;
 }
 
 label {
   margin-right: 10px;
+}
+
+ul {
+  list-style-type: none;
+  line-height: 3.5;
+  padding: 0;
 }

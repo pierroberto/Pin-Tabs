@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import './index.css';
 import {Store} from 'react-chrome-redux';
 
-
+import {Provider} from 'react-redux'
 
 import { connect } from 'react-redux';
 
@@ -27,17 +27,18 @@ export default class InjectApp extends Component {
     const classDetail='fa fa-plus-circle fa-3x add-button custom ';
     return (
       <div className ='button-container'>
-        <i className={store.getState().settings.button ? `${classDetail} visible` : `${classDetail} hidden`} accessKey='s' onClick={() => store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true})}></i>
+        <i className={this.props.settings.button ? `${classDetail} visible` : `${classDetail} hidden`} accessKey='s' onClick={() => store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true})}></i>
       </div>
     );
   }
 }
-//
-// const mapStateToProps = (state) => ({
-//   bookmark : state.bookmark,
-//   settings : state.settings
-// });
-//
+
+const mapStateToProps = (state) => ({
+  settings : state.settings
+});
+
+const ConnectedInjectApp = connect(mapStateToProps)(InjectApp);
+
 
 window.addEventListener('load', () => {
 
@@ -45,7 +46,9 @@ window.addEventListener('load', () => {
   injectDOM.className = 'inject-react';
   injectDOM.style.textAlign = 'center';
   document.body.appendChild(injectDOM);
-  render(<InjectApp />, injectDOM);
+  render(
+    <Provider store={store}>
+      <ConnectedInjectApp />
+    </Provider>
+    , injectDOM);
 });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
