@@ -4,22 +4,14 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './index.css';
 import {Store} from 'react-chrome-redux';
-
 import {Provider} from 'react-redux'
-
 import { connect } from 'react-redux';
-
-
-
 
 const store = new Store({
   portName: 'COUNTING',
 })
 
 export default class InjectApp extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   render() {
 

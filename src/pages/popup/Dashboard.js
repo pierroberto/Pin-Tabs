@@ -88,6 +88,7 @@ class Dashboard extends React.Component {
           tabs={this.props.bookmark.tabs}
           deleteTab={this.deleteTab}
           action='renderBookmark'
+          expirySettings={this.props.settings.expireDate}
         />
         <div className={this.props.settings.buttonHistory ? 'visible':'hidden'}>
           <h2 className='history'>History</h2>
@@ -95,6 +96,7 @@ class Dashboard extends React.Component {
             tabs={this.props.bookmark.chronology}
             deleteTab={false}
             action='renderChronology'
+            expired={true}
           />
         </div>
       </div>

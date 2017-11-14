@@ -1,7 +1,7 @@
 
 .content-container {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
   padding: 15px 0;
   border-bottom: 1px solid #F2F2F2;
@@ -12,23 +12,34 @@
   padding-bottom: 0;
 }
 
-.col-1 {
-  display: flex;
-  align-items: center;
+.col-1-1 {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+
 }
 
-.col-2 {
-  display: flex;
-  align-items: center;
+.col-1-2 {
+  color: #099ecf;
+
 }
+
 
 .icon {
   width: 16px;
   height: 16px;
-  margin-right: 5px;
+
+}
+
+.row {
+  display: flex;
+
 }
 
 .title {
   text-decoration: none;
+}
 
+.warning {
+  font-size: 10px;
 }

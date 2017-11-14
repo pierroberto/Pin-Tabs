@@ -12,7 +12,7 @@ class Settings extends React.Component {
   // ======================== RENDERING
 
   render () {
-    console.log('props in settings', this.props);
+    console.log('props in settings', this.props, 'value history', this.props.settings.expireDate);
     return (
       <div>
         <div className='header'>
@@ -26,7 +26,10 @@ class Settings extends React.Component {
           <ul>
             <li>
               <label>Keep bookmarks for</label>
-                <select onChange={(e)=>this.props.expire(parseInt(e.target.value))}>
+                <select value={this.props.settings.expireDate} onChange={(e)=>this.props.expire(parseInt(e.target.value))}>
+                  <option value='7000'>1 sec</option>
+                  <option value='3600000'>1 hour</option>
+                  <option value='43200000'>12 hours</option>
                   <option value='86400000'>1 day</option>
                   <option value='172800000'>2 days</option>
                   <option value='259200000'>3 days</option>

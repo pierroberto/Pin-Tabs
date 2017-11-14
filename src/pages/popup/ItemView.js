@@ -17,12 +17,49 @@ export default class ItemView extends React.Component {
     }
   }
 
+  checkExpireDate () {
+    console.log('expiry', this.props.expiry);
+    if (this.props.expired) return <div className='col-1-2 warning'>Expired</div>
+    let timeLeft;
+    const time = new Date (this.props.expirySettings - (Date.now() - this.props.expiry))
+    const seconds = (time / 1000).toFixed(1);
+    const minutes = (time / (1000 * 60)).toFixed(1);
+    const hours = (time / (1000 * 60 * 60)).toFixed(1);
+    const days = (time / (1000 * 60 * 60 * 24)).toFixed(1);
+
+    if (seconds < 60) {
+      (Math.floor(seconds) === 1) ? timeLeft = Math.floor(seconds) + " second" : timeLeft = Math.floor(seconds) + " seconds";
+    } else if (minutes < 60) {
+      (Math.floor(minutes) === 1) ? timeLeft = Math.floor(minutes) + " minute" : timeLeft = Math.floor(minutes) + " minutes";
+    } else if (hours < 24) {
+      (Math.floor(hours) === 1) ? timeLeft = Math.floor(hours) + " hour" : timeLeft = Math.floor(hours) + " hours";
+    } else {
+      (Math.floor(days) === 1) ? timeLeft = Math.floor(days) + " day" : timeLeft = Math.floor(days) + " days"
+    }
+    return (
+      <div className='col-1-2 warning'>
+        Expires in {timeLeft}
+      </div>
+    )
+  }
+
   render () {
     return (
       <div className='content-container'>
         <div className='col-1'>
-          <img className='icon' src={this.props.tab_icon} />
-          <a className='title' href={this.props.tab_url} target='_blank'>{this.props.tab_title}</a>
+          <div className='row'>
+            <div className='col-1-1'>
+              <img className='icon' src={this.props.tab_icon} />
+            </div>
+            <div className='col-1-2'>
+              <a className='title' href={this.props.tab_url} target='_blank'>{this.props.tab_title}</a>
+            </div>
+
+          </div>
+          <div className='row'>
+            <div className='col-1-1'></div>
+            {this.checkExpireDate()}
+          </div>
         </div>
         {this.checkDeleteButton()}
       </div>

@@ -7,14 +7,14 @@
         "default": "Ctrl+Shift+1",
         "mac": "Command+Shift+1"
       },
-      "description": "Save bookmark",
+      "description": "Pin the tabs you need and access them through its menu",
       "global": true
     }
   },
-  "version": "0.1",
-  "description": "Pin Tabs for short periods",
+  "version": "1.0.0",
+  "description": "Pin the tabs you need and access them through its menu",
   "browser_action": {
-      "default_title": "Click to save bookmark",
+      "default_title": "Show the list of pinned tabs",
       "default_popup": "pages/popup.html"
   },
   "author": "Pier Roberto Lucisano",
@@ -39,6 +39,9 @@
   ],
   "minimum_chrome_version": "60",
   "icons": {
-    "16" : "assets/list.png"
+    "16" : "assets/list.png",
+    "48" : "assets/list.png",
+    "128" : "assets/list.png"
+
   }
 }
