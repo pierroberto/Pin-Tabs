@@ -12,6 +12,7 @@ class Settings extends React.Component {
   // ======================== RENDERING
 
   render () {
+    console.log('props in actions', this.props);
     return (
       <div>
         <div className='header'>

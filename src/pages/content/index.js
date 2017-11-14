@@ -10,8 +10,8 @@ const store = new Store({
 })
 
 export default class InjectApp extends Component {
-
   render() {
+    if(!this.props.settings) return null;
     const classDetail='fa fa-plus-circle fa-3x add-button custom ';
     return (
       <div className ='button-container'>
