@@ -22,16 +22,14 @@ class Dashboard extends React.Component {
     })
     .then (link => {
       if (!link[0].favIconUrl) link[0].favIconUrl='../assets/nothing.png';
-      if (link[0].title.length > 10) link[0].title = truncate(link[0].title.toString(), 55)
+      if (link[0].title.length > 10) link[0].title = truncate(link[0].title.toString(), 50)
       const flag = this.checkUrl(link);
       if (flag) {
-        console.log('inside if');
         this.props.add(link)
       }
       else {
         //If it already exists remove the old link and add a new one
         this.props.deleteOne(link[0].url)
-        console.log('save link', link);
         this.props.add(link)
       }
     })
@@ -39,7 +37,6 @@ class Dashboard extends React.Component {
 
   checkUrl (link) {
     for (let i = 0; i < this.props.bookmark.tabs.length; i++) {
-      console.log('first', this.props.bookmark.tabs[i].tab[0].url, 'second', link[0].url);
       if (this.props.bookmark.tabs[i].tab[0].url === link[0].url) return false;
     }
     return true;
@@ -59,7 +56,6 @@ class Dashboard extends React.Component {
 // ====================== RENDERING
 
   render () {
-    console.log('rendering in dashboard', this.props);
     // I check if the button in the content script has been clicked
     if (this.props.bookmark.addFromButton) {
       this.saveBookmark()

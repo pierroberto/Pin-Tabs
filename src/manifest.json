@@ -1,25 +1,15 @@
 {
   "manifest_version": 2,
   "name": "Pin Tabs",
-  "commands": {
-    "toggle-feature-foo": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+1",
-        "mac": "Command+Shift+1"
-      },
-      "description": "Pin the tabs you need and access them through its menu",
-      "global": true
-    }
-  },
   "version": "1.0.0",
-  "description": "Pin the tabs you need and access them through its menu",
+  "description": "This extension allows the user to pin tabs and keep track of them for short periods.",
   "browser_action": {
-      "default_title": "Show the list of pinned tabs",
-      "default_popup": "pages/popup.html"
+    "default_title": "Show the list of pinned tabs",
+    "default_popup": "pages/popup.html"
   },
   "author": "Pier Roberto Lucisano",
   "background": {
-      "page": "pages/background.html"
+    "page": "pages/background.html"
   },
   "content_scripts": [
     {
@@ -35,13 +25,12 @@
     "https://*/*",
     "storage",
     "alarms"
-
   ],
   "minimum_chrome_version": "60",
   "icons": {
     "16" : "assets/list.png",
     "48" : "assets/list.png",
-    "128" : "assets/list.png"
-
-  }
+    "128" : "assets/list128.png"
+  },
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }

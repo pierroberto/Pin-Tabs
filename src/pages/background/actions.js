@@ -1,6 +1,5 @@
 
 //BOOKMARKS ACTIONS
-
 export const refreshBookmark = (data, time) => ({
   type: 'REFRESH',
   urlList: data,

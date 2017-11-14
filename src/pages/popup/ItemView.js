@@ -18,7 +18,6 @@ export default class ItemView extends React.Component {
   }
 
   checkExpireDate () {
-    console.log('expiry', this.props.expiry);
     if (this.props.expired) return <div className='col-1-2 warning'>Expired</div>
     let timeLeft;
     const time = new Date (this.props.expirySettings - (Date.now() - this.props.expiry))

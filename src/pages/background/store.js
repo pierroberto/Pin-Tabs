@@ -13,7 +13,6 @@ const store = createStore(
 );
 
 store.subscribe(throttle(() => {
-  console.log('subscribing....', store);
   saveState({
     bookmark: store.getState().bookmark,
     settings: store.getState().settings

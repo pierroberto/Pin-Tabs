@@ -23,7 +23,6 @@ export default class ListView extends React.Component {
   }
 
   render () {
-    console.log('inside list view', this.props);
     return (
       <div>
         {this.renderTabs()}

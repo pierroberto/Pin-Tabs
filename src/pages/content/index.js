@@ -1,5 +1,3 @@
-console.log('inside content script...')
-
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './index.css';
@@ -14,8 +12,6 @@ const store = new Store({
 export default class InjectApp extends Component {
 
   render() {
-
-    console.log('rendering', store);
     const classDetail='fa fa-plus-circle fa-3x add-button custom ';
     return (
       <div className ='button-container'>
