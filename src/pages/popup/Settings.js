@@ -27,6 +27,7 @@ class Settings extends React.Component {
             <li>
               <label>Keep bookmarks for</label>
                 <select value={this.props.settings.expireDate} onChange={(e)=>this.props.expire(parseInt(e.target.value))}>
+                  <option value='10000'>1 sec</option>
                   <option value='3600000'>1 hour</option>
                   <option value='43200000'>12 hours</option>
                   <option value='86400000'>1 day</option>

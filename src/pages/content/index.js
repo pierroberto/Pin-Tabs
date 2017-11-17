@@ -12,7 +12,7 @@ const store = new Store({
 export default class InjectApp extends Component {
   render() {
     if(!this.props.settings) return null;
-    const classDetail='fa fa-plus-circle fa-3x add-button custom ';
+    const classDetail='fa fa-plus-circle fa-3x add-button custom '; //faa-tada animated
     return (
       <div className ='button-container'>
         <i className={this.props.settings.button ? `${classDetail} visible` : `${classDetail} hidden`} accessKey='s' onClick={() => store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true})}></i>
