@@ -6,7 +6,7 @@ import thunk from 'redux-thunk'
 import reducer from './reducers'
 import throttle from 'lodash/throttle';
 import { saveState, loadState } from './localStorage';
-
+console.log('store', store);
 const store = createStore(
   reducer,
   loadState()
@@ -15,7 +15,8 @@ const store = createStore(
 store.subscribe(throttle(() => {
   saveState({
     bookmark: store.getState().bookmark,
-    settings: store.getState().settings
+    settings: store.getState().settings,
+    animation: store.getState().animation
   })
 }), 1000);
 

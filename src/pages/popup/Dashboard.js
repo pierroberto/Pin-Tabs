@@ -112,7 +112,8 @@ class Dashboard extends React.Component {
 
 const mapStateToProps = (state) => ({
   bookmark : state.bookmark,
-  settings : state.settings
+  settings : state.settings,
+  animation: state.animation
 });
 
 const mapDispatchToProps  = (dispatch) => ({

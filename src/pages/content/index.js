@@ -10,19 +10,48 @@ const store = new Store({
 })
 
 export default class InjectApp extends Component {
+    constructor (props) {
+      super(props)
+      this.classDetail=''
+    }
   render() {
-    if(!this.props.settings) return null;
-    const classDetail='fa fa-plus-circle fa-3x add-button custom '; //faa-tada animated
+    //VERSION 1.0.2
+    console.log('store in content script', this.props);
+    if (!this.props.settings || !this.props.animation) return null;
+    if (this.props.animation.buttonCog) {
+      console.log('add class');
+      this.classDetail='fa fa-plus-circle faa-tada animated fa-3x add-button custom ';
+      setTimeout(function() {
+        store.dispatch({type:'TOGGLE-COG', buttonCog: false});
+      }, 1500)
+    }
+    if (!this.props.animation.buttonCog) {
+      this.classDetail='fa fa-plus-circle fa-3x add-button custom ';
+    }
     return (
       <div className ='button-container'>
-        <i className={this.props.settings.button ? `${classDetail} visible` : `${classDetail} hidden`} accessKey='s' onClick={() => store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true})}></i>
+        <i
+          className={this.props.settings.button ? `${this.classDetail} visible` : `${this.classDetail} hidden`}
+          accessKey='s'
+          onClick={() => {
+              store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true});
+              store.dispatch({type:'TOGGLE-COG', buttonCog: true});
+
+            }
+          }>
+        </i>
       </div>
     );
+
+  // if (this.props.animation) {
+  //   console.log('second time');
+  // }
   }
 }
 
 const mapStateToProps = (state) => ({
-  settings : state.settings
+  settings : state.settings,
+  animation: state.animation
 });
 
 const ConnectedInjectApp = connect(mapStateToProps)(InjectApp);

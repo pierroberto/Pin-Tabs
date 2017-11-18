@@ -37,7 +37,15 @@ export const expireDate = (date) => ({
   type: 'UPDATE-DATE',
   expireDate: date
 })
+
 export const toggleButtonHistory = (flag) => ({
   type: 'TOGGLE-BUTTON-HISTORY',
   toggleButtonHistory: flag
+})
+
+// ANIMATION ACTIONS
+
+export const buttonCog = (flag) => ({
+  type: 'TOGGLE-COG',
+  buttonCog: flag
 })
