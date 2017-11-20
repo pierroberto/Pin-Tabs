@@ -29,7 +29,7 @@ export default class InjectApp extends Component {
       this.classDetail='fa fa-plus-circle fa-3x add-button custom ';
     }
     return (
-      <div className ='button-container'>
+
         <i
           className={this.props.settings.button ? `${this.classDetail} visible` : `${this.classDetail} hidden`}
           accessKey='s'
@@ -40,12 +40,10 @@ export default class InjectApp extends Component {
             }
           }>
         </i>
-      </div>
+
     );
 
-  // if (this.props.animation) {
-  //   console.log('second time');
-  // }
+
   }
 }
 
