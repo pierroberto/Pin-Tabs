@@ -12,34 +12,41 @@ const store = new Store({
 export default class InjectApp extends Component {
     constructor (props) {
       super(props)
-      this.classDetail=''
+      this.classButtonDetail='';
+      this.classPopupDetail='';
     }
   render() {
     //VERSION 1.0.2
-    console.log('store in content script', this.props);
     if (!this.props.settings || !this.props.animation) return null;
     if (this.props.animation.buttonCog) {
-      console.log('add class');
-      this.classDetail='fa fa-plus-circle faa-tada animated fa-3x add-button custom ';
+      this.classButtonDetail='circle faa-tada ';
+      this.classPopupDetail='popup popup-visibility-show ';
       setTimeout(function() {
         store.dispatch({type:'TOGGLE-COG', buttonCog: false});
-      }, 1500)
+      }, 3500)
     }
     if (!this.props.animation.buttonCog) {
-      this.classDetail='fa fa-plus-circle fa-3x add-button custom ';
+      this.classButtonDetail='circle ';
+      this.classPopupDetail='popup popup-visibility-hide';
     }
     return (
+    <div>
 
-        <i
-          className={this.props.settings.button ? `${this.classDetail} visible` : `${this.classDetail} hidden`}
+        <div
+          className={this.props.settings.button ? `${this.classButtonDetail} visible` : `${this.classButtonDetail} hidden`}
           accessKey='s'
           onClick={() => {
               store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true});
               store.dispatch({type:'TOGGLE-COG', buttonCog: true});
 
             }
-          }>
-        </i>
+          }
+          >
+          <div className={this.classPopupDetail}>Saved</div>
+          <div className='x-line'></div>
+          <div className='y-line'></div>
+        </div>
+</div>
 
     );
 
