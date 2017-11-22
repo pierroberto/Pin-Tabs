@@ -4,6 +4,7 @@ import {refreshBookmark, deleteAllBookmark, deleteOneBookmark, addBookmark, addF
 import './dashboard.css';
 import ListView from './ListView.js';
 import Settings from './Settings';
+import Search from './Search'
 import truncate from 'truncate';
 import {Link} from 'react-router-dom'
 
@@ -53,6 +54,7 @@ class Dashboard extends React.Component {
 
   componentDidMount() {
     // VERSION 1.0.2 Double check if the link has expireDate
+
     this.props.bookmark.tabs.map ((tab) => {
       console.log('tab', tab.tab[0].url);
       if (tab.expiry >= (this.props.settings.expireDate + Date.now())) {
@@ -62,6 +64,19 @@ class Dashboard extends React.Component {
     })
   }
 
+  checkSearch () {
+    if (!this.props.bookmark.search) {
+      console.log('ok it should render');
+      return (
+        <ListView
+          tabs={this.props.bookmark.tabs}
+          deleteTab={this.deleteTab}
+          action='renderBookmark'
+          expirySettings={this.props.settings.expireDate}
+        />
+      )
+    }
+  }
 
 // ====================== RENDERING
 
@@ -90,12 +105,9 @@ class Dashboard extends React.Component {
           <div className='col-2'>
           </div>
         </div>
-        <ListView
-          tabs={this.props.bookmark.tabs}
-          deleteTab={this.deleteTab}
-          action='renderBookmark'
-          expirySettings={this.props.settings.expireDate}
-        />
+        <Search />
+        {this.checkSearch()}
+
         <div className={this.props.settings.buttonHistory ? 'visible':'hidden'}>
           <h2 className='history'>History</h2>
           <ListView
