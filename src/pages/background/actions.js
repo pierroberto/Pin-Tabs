@@ -26,6 +26,15 @@ export const addFromButton = (flag) => ({
   addFromButton: flag
 })
 
+export const searchBookmark = (text) => ({
+  type: 'SEARCH',
+  textSearched: text
+})
+
+export const emptySearch = () => ({
+  type: 'EMPTY-SEARCH'
+})
+
 //SETTINGS actions
 
 export const toggleButton = (flag) => ({
@@ -42,6 +51,7 @@ export const toggleButtonHistory = (flag) => ({
   type: 'TOGGLE-BUTTON-HISTORY',
   toggleButtonHistory: flag
 })
+
 
 // ANIMATION ACTIONS
 
