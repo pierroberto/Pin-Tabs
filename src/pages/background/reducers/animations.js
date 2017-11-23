@@ -6,14 +6,19 @@ const defaultState = {
 const animation = (state=defaultState,action) => {
   switch (action.type) {
     case 'TOGGLE-COG':
-    console.log('cog');
       return {
         ...state,
         buttonCog: action.buttonCog
       }
+    case 'TOGGLE-SEARCH':
+      return {
+        ...state,
+        toggleSearch: action.toggleSearch
+      }
     default:
       return state;
   }
+
 }
 
 export default animation;

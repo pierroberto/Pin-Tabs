@@ -1,29 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './search.css';
-import {searchBookmark, emptySearch} from '../background/actions';
+import {searchBookmark, emptySearch, toggleSearch} from '../background/actions';
 import ListView from './ListView';
 class Search extends React.Component {
 
 
-  findTab = (value) => {
-
-    //if the search input is empty then...
-    this.props.searchString(value)
-    if (!this.props.bookmark.search) {
-      const searchListClass='hide';
-      //Show Listview component with the tabs
-    }
-  }
-
-  checkSearch () {
-    console.log('show search result', this.props.bookmark.searchResult);
-    if (this.props.bookmark.searchResult.length > 0) {
-      const searchListClass='show';
+  findTab = () => {
+    if (this.props.bookmark.search) {
       return (
-        <ListView className={searchListClass}
+        <ListView className={this.props.animation.toggleSearch}
           tabs={this.props.bookmark.searchResult}
-          //deleteTab={this.deleteTab}
           action='renderBookmark'
           expirySettings={this.props.settings.expireDate}
         />
@@ -32,18 +19,15 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
-    console.log('mounting');
-   this.props.resetSearch()
+    this.props.resetSearch()
   }
 
 // ================== RENDERING
   render () {
-    console.log('props', this.props);
-
     return (
       <div>
-        <input type=  'text' onChange={(e) => this.findTab(e.target.value)} placeholder='search...'></input>
-        {this.checkSearch()}
+        <input type=  'text' onChange={(e) => this.props.searchString(e.target.value)} placeholder='search...' autoFocus></input>
+        {this.findTab()}
       </div>
     )
   }
@@ -58,7 +42,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps  = (dispatch) => ({
   searchString: (text) => dispatch(searchBookmark(text)),
-  resetSearch: () => dispatch(emptySearch())
+  resetSearch: () => dispatch(emptySearch()),
+  displaySearch: (classValue) => dispatch(toggleSearch(classValue))
 
 });
 

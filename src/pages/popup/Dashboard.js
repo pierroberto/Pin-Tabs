@@ -66,7 +66,6 @@ class Dashboard extends React.Component {
 
   checkSearch () {
     if (!this.props.bookmark.search) {
-      console.log('ok it should render');
       return (
         <ListView
           tabs={this.props.bookmark.tabs}
@@ -98,14 +97,17 @@ class Dashboard extends React.Component {
         </div>
 
         <div className='nav'>
+
           <div className='col-1'>
             <button onClick={() => this.saveBookmark()}>Add</button>
-            <button onClick={() => this.clearAll()}>Delete All</button>
+            {/* <button onClick={() => this.clearAll()}>Delete All</button> */}
+            <Search />
           </div>
           <div className='col-2'>
+
           </div>
         </div>
-        <Search />
+
         {this.checkSearch()}
 
         <div className={this.props.settings.buttonHistory ? 'visible':'hidden'}>

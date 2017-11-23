@@ -18,14 +18,8 @@ button {
   padding: 5px 10px;
 }
 
-custom {
-  background-color: blue;
-}
-
-
 .fa-cog:hover {
   color: #33C3F0;
-
 }
 
 .fa-trash-o:hover {
@@ -53,8 +47,10 @@ h2 {
 
 .nav {
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   align-items: flex-start;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
 }
 
 .visible {

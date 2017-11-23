@@ -59,3 +59,8 @@ export const buttonCog = (flag) => ({
   type: 'TOGGLE-COG',
   buttonCog: flag
 })
+
+export const toggleSearch = (classValue) => ({
+  type: 'TOGGLE-SEARCH',
+  toggleSearch: classValue
+})

@@ -1,8 +1,5 @@
 
 const defaultState = {
-  //Structure of tabs and chronology
-  // tabs: [{tab: [{url:'', title: '', favIconUrl: ''}], expiry: 0}],
-  // chronology: [{tab: [{url:'http://google.com', title: 'Example', favIconUrl: ''}], expiry: 0}],
   tabs: [],
   chronology: [],
   addFromButton: false,
@@ -47,7 +44,7 @@ const bookmark = (state=defaultState,action) => {
     case 'SEARCH':
       return {
         ...state,
-        searchResult: [...state.tabs.filter(element => element.tab[0].url.indexOf(action.textSearched) !== -1)],
+        searchResult: [...state.tabs.filter(element => element.tab[0].title.indexOf(action.textSearched) !== -1)],
         search: action.textSearched
       }
     case 'EMPTY-SEARCH':
