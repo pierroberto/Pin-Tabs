@@ -44,7 +44,7 @@ const bookmark = (state=defaultState,action) => {
     case 'SEARCH':
       return {
         ...state,
-        searchResult: [...state.tabs.filter(element => element.tab[0].title.indexOf(action.textSearched) !== -1)],
+        searchResult: [...state.tabs.filter(element => element.tab[0].title.toLowerCase().indexOf(action.textSearched.toLowerCase()) !== -1)],
         search: action.textSearched
       }
     case 'EMPTY-SEARCH':
