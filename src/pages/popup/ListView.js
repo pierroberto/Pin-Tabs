@@ -6,6 +6,11 @@ import ItemView from './ItemView';
 export default class ListView extends React.Component {
 
   renderTabs () {
+    if (this.props.tabs.length < 1) {
+      return (
+        <h2 className='empty-list'>No tabs to show :(</h2>
+      )
+    }
     return this.props.tabs.map (tab => {
       return (
         <ItemView

@@ -98,11 +98,13 @@ class Dashboard extends React.Component {
 
         <div className='nav'>
 
-          <div className='col-1'>
+          <div className='col-1 custom'>
             <button onClick={() => this.saveBookmark()}>Add</button>
             {/* <button onClick={() => this.clearAll()}>Delete All</button> */}
             <Search />
           </div>
+
+
           <div className='col-2'>
 
           </div>
