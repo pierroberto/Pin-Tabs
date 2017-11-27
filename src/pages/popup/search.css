@@ -2,6 +2,9 @@
   visibility: hidden;
 }
 
+input {
+  border: none;
+}
 input:focus {
   outline:none;
   border: none;

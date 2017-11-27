@@ -26,7 +26,7 @@ class Search extends React.Component {
   render () {
     return (
       <div>
-        <input type=  'text' onChange={(e) => this.props.searchString(e.target.value)} placeholder='search...' autoFocus></input>
+        <input type='text' onChange={(e) => this.props.searchString(e.target.value)} placeholder='search...' ></input>
         {this.findTab()}
       </div>
     )
