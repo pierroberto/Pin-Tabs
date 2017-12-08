@@ -1,6 +1,6 @@
 # Pin-Tabs
 
-This extension allows the user to pin browser tabs and keep track of them for short periods of time.
+A Google Chrome extension that allows the user to pin browser tabs and keep track of them for short periods of time.
 You can add tabs to your favourites either by clicking on the extension's icon, or through a keyboard shortcut (mac: `CTRL + OPT + s`, Windows: `ALT + s`, Linux: `CTRL + ALT + s`). 
 
 Pinned tabs expire after a user-set timing (from 1 hour to 1 week). The last few expired tabs are still accessible through chronology.
