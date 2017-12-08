@@ -5,7 +5,9 @@ You can add tabs to your favourites either by clicking on the extension's icon, 
 
 Pinned tabs expire after a user-set timing (from 1 hour to 1 week). The last few expired tabs are still accessible through chronology.
 
+<p align="center">
 <img src="./images/image1.png" width="300px" height="auto"/><img src="./images/image2.png" width="300px" height="auto"/>
+</p>
 
 ## Installation
 
