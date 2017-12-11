@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Pin Tabs",
-  "version": "1.1.0",
-  "description": "This extension allows the user to pin tabs and keep track of them for short periods.",
+  "name": "Pin tabs - Tab Manager",
+  "version": "1.1.1",
+  "description": "Pin Tabs allows the user to pin tabs and keep track of them for short periods.",
   "browser_action": {
     "default_title": "Show the list of pinned tabs",
     "default_popup": "pages/popup.html"
