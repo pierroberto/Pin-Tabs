@@ -1,8 +1,10 @@
 {
   "manifest_version": 2,
   "name": "Pin tabs - Tab Manager",
-  "version": "1.1.1",
-  "description": "Pin Tabs allows the user to pin tabs and keep track of them for short periods.",
+  "short_name": "Keep tabs history",
+  "version": "1.1.2",
+  "description":
+    "Save Tabs allows the user to pin tabs and keep track of them in the history for short periods.",
   "browser_action": {
     "default_title": "Show the list of pinned tabs",
     "default_popup": "pages/popup.html"
@@ -15,7 +17,8 @@
     {
       "matches": ["<all_urls>"],
       "js": ["pages/index.js"],
-      "run_at": "document_end"
+      "run_at": "document_end",
+      "exclude_matches": ["https://www.youtube.com/"]
     }
   ],
   "permissions": [
@@ -28,9 +31,10 @@
   ],
   "minimum_chrome_version": "60",
   "icons": {
-    "16" : "assets/list.png",
-    "48" : "assets/list.png",
-    "128" : "assets/list128.png"
+    "16": "assets/list.png",
+    "48": "assets/list.png",
+    "128": "assets/list128.png"
   },
-  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
+  "content_security_policy":
+    "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }

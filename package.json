@@ -1,5 +1,5 @@
 {
-  "name": "Chrome Tabs Manager",
+  "name": "chrome-redux-tutorial",
   "description": "Redux Chrome extension example",
   "repository": {
     "type": "git",
@@ -7,8 +7,8 @@
   },
   "version": "0.0.1",
   "author": {
-    "name": "Pier Roberto Lucisano",
-    "email": "pierroberto.lucisano@gmail.com"
+    "name": "Your Name",
+    "email": "user@server.com"
   },
   "license": "MIT",
   "scripts": {
