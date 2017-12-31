@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Pin tabs - Tab Manager",
   "short_name": "Keep tabs history",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description":
     "Save Tabs allows the user to pin tabs and keep track of them in the history for short periods.",
   "browser_action": {
@@ -18,7 +18,7 @@
       "matches": ["<all_urls>"],
       "js": ["pages/index.js"],
       "run_at": "document_end",
-      "exclude_matches": ["https://www.youtube.com/"]
+      "exclude_matches": ["https://www.youtube.com/*"]
     }
   ],
   "permissions": [
