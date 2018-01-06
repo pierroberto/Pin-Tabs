@@ -2,11 +2,9 @@ import { applyMiddleware, createStore } from 'redux'
 import { wrapStore, alias } from 'react-chrome-redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
-//import aliases from './aliases'
 import reducer from './reducers'
 import throttle from 'lodash/throttle';
 import { saveState, loadState } from './localStorage';
-console.log('store', store);
 const store = createStore(
   reducer,
   loadState()

@@ -59,9 +59,7 @@ class Dashboard extends React.Component {
     // VERSION 1.0.2 Double check if the link has expireDate
 
     this.props.bookmark.tabs.map(tab => {
-      console.log("tab", tab.tab[0].url);
       if (tab.expiry >= this.props.settings.expireDate + Date.now()) {
-        console.log("inside if");
         store.dispatch({ type: "EXPIRY", url: tab.tab[0].url });
       }
     });

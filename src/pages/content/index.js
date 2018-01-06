@@ -16,7 +16,6 @@ export default class InjectApp extends Component {
       this.classPopupDetail='';
     }
   render() {
-    //VERSION 1.0.2
     if (!this.props.settings || !this.props.animation) return null;
     if (this.props.animation.buttonCog) {
       this.classButtonDetail='circle faa-tada ';
@@ -31,14 +30,12 @@ export default class InjectApp extends Component {
     }
     return (
     <div>
-
         <div
           className={this.props.settings.button ? `${this.classButtonDetail} visible` : `${this.classButtonDetail} hidden`}
           accessKey='s'
           onClick={() => {
               store.dispatch({type:'ADD-FROM-BUTTON', addFromButton: true});
               store.dispatch({type:'TOGGLE-COG', buttonCog: true});
-
             }
           }
           >
@@ -46,8 +43,7 @@ export default class InjectApp extends Component {
           <div className='x-line'></div>
           <div className='y-line'></div>
         </div>
-</div>
-
+    </div>
     );
 
 
