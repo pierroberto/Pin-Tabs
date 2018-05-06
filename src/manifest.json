@@ -2,9 +2,9 @@
   "manifest_version": 2,
   "name": "Pin tabs - Tab Manager",
   "short_name": "Keep tabs history",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description":
-    "Pin Tabs allows the user to pin one or more tabs for short periods and keep track of the expired tabs in the history.",
+    "Pin Tabs allows the user to pin one or more tabs for short periods, keep track of the expired tabs in the history and save energy",
   "browser_action": {
     "default_title": "Show the list of pinned tabs",
     "default_popup": "pages/popup.html"

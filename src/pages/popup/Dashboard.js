@@ -68,12 +68,25 @@ class Dashboard extends React.Component {
   checkSearch() {
     if (!this.props.bookmark.search) {
       return (
-        <ListView
-          tabs={this.props.bookmark.tabs}
-          deleteTab={this.deleteTab}
-          action="renderBookmark"
-          expirySettings={this.props.settings.expireDate}
-        />
+        <div>
+          <ListView
+            tabs={this.props.bookmark.tabs}
+            deleteTab={this.deleteTab}
+            action="renderBookmark"
+            expirySettings={this.props.settings.expireDate}
+          />
+          <div
+            className={this.props.settings.buttonHistory ? "visible" : "hidden"}
+          >
+            <h2 className="history">History</h2>
+            <ListView
+              tabs={this.props.bookmark.chronology}
+              deleteTab={false}
+              action="renderChronology"
+              expired={true}
+            />
+          </div>
+        </div>
       );
     }
   }
@@ -108,17 +121,6 @@ class Dashboard extends React.Component {
 
         {this.checkSearch()}
 
-        <div
-          className={this.props.settings.buttonHistory ? "visible" : "hidden"}
-        >
-          <h2 className="history">History</h2>
-          <ListView
-            tabs={this.props.bookmark.chronology}
-            deleteTab={false}
-            action="renderChronology"
-            expired={true}
-          />
-        </div>
         <div className="footer">
           <div className="footer__author">Pier Roberto Lucisano 📌 2018</div>
           <div className="footer__social">
