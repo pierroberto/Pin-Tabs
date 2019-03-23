@@ -2,7 +2,7 @@ const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-
+const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin')
 require("babel-core/register");
 require("babel-polyfill");
 
@@ -13,6 +13,10 @@ function generateHtmlPlugins(items) {
     {
       filename: `./${name}.html`,
       chunks: [ name ],
+      options: {
+        trackingId: 'UA-xxxxxxx',
+        pageViewOnLoad: true,
+      }
     }
   ))
 }
@@ -77,6 +81,12 @@ module.exports = {
         'background',
         'popup'
       ]
-    )
+    ),
+    new CspHtmlWebpackPlugin({
+      'base-uri': "'self'",
+      'object-src': "'none'",
+      'script-src': ["'self'", 'http://*', "'unsafe-inline'", "'unsafe-eval'" ],
+      'style-src': ["'self'", 'http://*', "'unsafe-inline'"]
+    })
   ]
 }
