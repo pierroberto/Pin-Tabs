@@ -122,7 +122,7 @@ class Dashboard extends React.Component {
         {this.checkSearch()}
 
         <div className="footer">
-          <div className="footer__author">Pier Roberto Lucisano 📌 2018</div>
+          <div className="footer__author">Pier Roberto Lucisano 📌 2019</div>
           <div className="footer__social">
             <div className="footer__github">
               <i class="fa fa-github fa-lg" aria-hidden="true" />
