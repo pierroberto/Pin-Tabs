@@ -1,5 +1,7 @@
 # Pin-Tabs
+
 [![license](https://badgen.now.sh/badge/license/MIT)](./LICENSE)
+![users](https://badgen.now.sh/chrome-web-store/users/hhgfkccdcpjigagnmbfehocajjggifam)
 
 A Google Chrome extension that allows the user to pin browser tabs and keep track of them for short periods of time.
 You can add tabs to your favourites either by clicking on the extension's icon, or through a keyboard shortcut (mac: `CTRL + OPT + s`, Windows: `ALT + s`, Linux: `CTRL + ALT + s`). 
