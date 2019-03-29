@@ -1,4 +1,6 @@
-# Pin-Tabs
+<p align="center">
+<img src="./logo-readme.png" width="200px" height="auto"/>
+</p>
 
 [![license](https://badgen.now.sh/badge/license/MIT)](./LICENSE)
 ![users](https://badgen.now.sh/chrome-web-store/users/hhgfkccdcpjigagnmbfehocajjggifam)
