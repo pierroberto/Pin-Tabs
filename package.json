@@ -40,6 +40,7 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "truncate": "^2.0.0",
     "url-loader": "^0.5.9",
     "uuid": "^3.1.0",
