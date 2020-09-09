@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Pin tabs - Tab Manager",
   "short_name": "Keep tabs history",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Pin Tabs allows the user to pin one or more tabs for short periods, keep track of the expired tabs in the history and save energy",
   "browser_action": {
     "default_title": "Show the list of pinned tabs",
@@ -20,19 +20,11 @@
       "exclude_matches": ["https://www.youtube.com/*"]
     }
   ],
-  "permissions": [
-    "tabs",
-    "activeTab",
-    "http://*/*",
-    "https://*/*",
-    "storage",
-    "alarms"
-  ],
+  "permissions": ["activeTab", "alarms"],
   "minimum_chrome_version": "60",
   "icons": {
     "16": "assets/list.png",
     "48": "assets/list.png",
     "128": "assets/list128.png"
-  },
-  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
+  }
 }
