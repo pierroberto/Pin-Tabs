@@ -55,4 +55,7 @@ const mapDispatchToProps = dispatch => ({
   displaySearch: classValue => dispatch(toggleSearch(classValue))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Search);
