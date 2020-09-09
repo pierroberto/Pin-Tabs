@@ -122,7 +122,16 @@ class Dashboard extends React.Component {
         {this.checkSearch()}
 
         <div className="footer">
-          <div className="footer__author">Pier Roberto Lucisano 📌 2019</div>
+          <div className="footer__author">Pier Roberto Lucisano 📌 2020</div>
+          <div className="footer__github">
+            <a
+              className="footer__link"
+              href="https://paypal.me/pierrobertolucisano"
+              target="_blank"
+            >
+              ❤️ Donate
+            </a>
+          </div>
           <div className="footer__social">
             <div className="footer__github">
               <i class="fa fa-github fa-lg" aria-hidden="true" />
@@ -155,4 +164,7 @@ const mapDispatchToProps = dispatch => ({
   addThroughButton: flag => dispatch(addFromButton(flag))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dashboard);

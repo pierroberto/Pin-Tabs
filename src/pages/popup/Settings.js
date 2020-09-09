@@ -76,4 +76,7 @@ const mapDispatchToProps = dispatch => ({
   expire: date => dispatch(expireDate(date))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Settings);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Settings);

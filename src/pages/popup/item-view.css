@@ -1,10 +1,9 @@
-
 .content-container {
   display: flex;
   align-items: end;
   justify-content: space-between;
   padding: 15px 0;
-  border-bottom: 1px solid #F2F2F2;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 .content-container:last-child {
@@ -16,24 +15,19 @@
   width: 16px;
   height: 16px;
   margin-right: 5px;
-
 }
 
 .col-1-2 {
   color: #099ecf;
-
 }
-
 
 .icon {
   width: 16px;
   height: 16px;
-
 }
 
 .row {
   display: flex;
-
 }
 
 .title {
