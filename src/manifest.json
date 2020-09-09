@@ -16,8 +16,7 @@
     {
       "matches": ["<all_urls>"],
       "js": ["pages/index.js"],
-      "run_at": "document_end",
-      "exclude_matches": ["https://www.youtube.com/*"]
+      "run_at": "document_end"
     }
   ],
   "permissions": ["activeTab", "alarms"],
