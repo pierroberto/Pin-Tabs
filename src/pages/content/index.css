@@ -8,7 +8,7 @@
   border-radius: 100%;
   background-color: #33c3f0;
   cursor: pointer;
-  z-index: 99999;
+  z-index: 9999999;
 }
 
 .hidden {

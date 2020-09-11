@@ -5,7 +5,7 @@ import {
   deleteAllBookmark,
   deleteOneBookmark,
   addBookmark,
-  addFromButton
+  addFromButton,
 } from "../background/actions";
 import "./dashboard.css";
 import ListView from "./ListView.js";
@@ -21,10 +21,10 @@ class Dashboard extends React.Component {
 
   saveBookmark() {
     return new Promise((resolved, rejected) => {
-      chrome.tabs.query({ active: true, lastFocusedWindow: true }, data => {
+      chrome.tabs.query({ active: true, lastFocusedWindow: true }, (data) => {
         resolved(data);
       });
-    }).then(link => {
+    }).then((link) => {
       if (!link[0].favIconUrl) link[0].favIconUrl = "../assets/nothing.png";
       if (link[0].title.length > 10)
         link[0].title = truncate(link[0].title.toString(), 50);
@@ -50,7 +50,7 @@ class Dashboard extends React.Component {
     this.props.deleteAll();
   }
 
-  deleteTab = url => {
+  deleteTab = (url) => {
     this.props.deleteOne(url);
     return data;
   };
@@ -58,7 +58,7 @@ class Dashboard extends React.Component {
   componentDidMount() {
     // VERSION 1.0.2 Double check if the link has expireDate
 
-    this.props.bookmark.tabs.map(tab => {
+    this.props.bookmark.tabs.map((tab) => {
       if (tab.expiry >= this.props.settings.expireDate + Date.now()) {
         store.dispatch({ type: "EXPIRY", url: tab.tab[0].url });
       }
@@ -126,7 +126,7 @@ class Dashboard extends React.Component {
           <div className="footer__github">
             <a
               className="footer__link"
-              href="https://paypal.me/pierrobertolucisano"
+              href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YD9DV8CBL3LRA&source=url"
               target="_blank"
             >
               ❤️ Donate
@@ -150,21 +150,18 @@ class Dashboard extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   bookmark: state.bookmark,
   settings: state.settings,
-  animation: state.animation
+  animation: state.animation,
 });
 
-const mapDispatchToProps = dispatch => ({
-  add: url => dispatch(addBookmark(url)),
-  refresh: data => dispatch(refreshBookmark(data)),
+const mapDispatchToProps = (dispatch) => ({
+  add: (url) => dispatch(addBookmark(url)),
+  refresh: (data) => dispatch(refreshBookmark(data)),
   deleteAll: () => dispatch(deleteAllBookmark()),
-  deleteOne: url => dispatch(deleteOneBookmark(url)),
-  addThroughButton: flag => dispatch(addFromButton(flag))
+  deleteOne: (url) => dispatch(deleteOneBookmark(url)),
+  addThroughButton: (flag) => dispatch(addFromButton(flag)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
